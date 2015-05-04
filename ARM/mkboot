@@ -468,7 +468,7 @@ fi
 }
 
 tekramdisk_offset=$($grep -abo ROOTFS ../ramdisk.gz | $busybox cut -f 1 -d :)
-if [[ "$tekramdisk_offset" -eq 8 ]]; then
+if [[ "$tekramdisk_offset" -eq 6 ]]; then
 	$busybox dd bs=512 skip=1 if=../ramdisk.gz of=../tekramdisk.gz 2>/dev/null # Remove Header to verify file integrity
 	$busybox printf "MTK_HEADER=ROOTFS" >> ../img_info
 	MTKFILE
